@@ -6,7 +6,7 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.nodePackages.firebase-tools
-    pkgs.jdk21
+    pkgs.jdk
     pkgs.unzip
   ];
   # Sets environment variables in the workspace
