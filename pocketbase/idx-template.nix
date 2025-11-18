@@ -15,12 +15,13 @@
  */
 
 { pkgs, module ? "example.com", ... }: {
+  channel = "stable-25.05";
   packages = [
     pkgs.go
-    pkgs.python3
-    pkgs.python311Packages.pip
-    pkgs.python311Packages.fastapi
-    pkgs.python311Packages.uvicorn
+    pkgs.python313
+    pkgs.python313Packages.pip
+    pkgs.python313Packages.fastapi
+    pkgs.python313Packages.uvicorn
   ];
   bootstrap = ''    
     mkdir "$out"
