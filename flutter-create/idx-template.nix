@@ -6,7 +6,8 @@ channel = "stable-25.05"; # or "unstable"
         pkgs.xz
         pkgs.git
         pkgs.busybox
-        pkgs.flutter
+        pkgs.flutterPackages-source.stable
+        pkgs.jdk
     ];
     bootstrap = ''
         flutter create "$out" --template="${template}" --platforms="${platforms}" ${if sample == "none" then "" else "--sample=${sample}"} ${if blank then "-e" else ""}
