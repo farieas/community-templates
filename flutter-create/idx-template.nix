@@ -1,4 +1,5 @@
 {pkgs, sample ? "none", template ? "app", blank ? false, platforms ? "web,android", ...}: {
+    channel = "stable-24.05";
     packages = [
         pkgs.curl
         pkgs.gnutar
@@ -6,7 +7,7 @@
         pkgs.git
         pkgs.busybox
         pkgs.flutter
-        pkgs.jdk
+        pkgs.jdk21
     ];
     bootstrap = ''
         flutter create "$out" --template="${template}" --platforms="${platforms}" ${if sample == "none" then "" else "--sample=${sample}"} ${if blank then "-e" else ""}
