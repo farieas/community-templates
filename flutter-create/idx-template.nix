@@ -1,5 +1,4 @@
 {pkgs, sample ? "none", template ? "app", blank ? false, platforms ? "web,android", ...}: {
-    channel = "stable-25.05";
     packages = [
         pkgs.curl
         pkgs.gnutar
