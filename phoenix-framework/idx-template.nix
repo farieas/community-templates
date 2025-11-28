@@ -12,5 +12,6 @@ channel = "stable-25.05"; # or "unstable"
 
     chmod -R u+w "$out"
     sed -i 's/4000/System.get_env("PORT") || 4000/g' "$out"/config/dev.exs
+    sed -i 's/{127, 0, 0, 1}/{0, 0, 0, 0}/g' "$out"/config/dev.exs
   '';
 }
