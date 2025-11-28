@@ -25,7 +25,7 @@
       enable = true;
       previews = {
         web = {
-          command = ["mix" "phx.server"];
+           command = ["mix" "phx.server" "--" "--port" "$PORT" "--bind" "0.0.0.0"];
           manager = "web";
           env = {
             PORT = "$PORT";
