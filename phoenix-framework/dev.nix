@@ -33,24 +33,19 @@
       };
     };
     # Workspace lifecycle hooks
-    workspace = {
-      # Runs when a workspace is first created
+  workspace = {
+      # 1. onCreate: Database setup (runs only on first creation)
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
         setup-project = ''
           psql --dbname=postgres -c "CREATE USER \"postgres\" PASSWORD 'postgres' CREATEDB LOGIN;"
           mix local.hex --force
           mix setup
         '';
-        # Open editors for the following files by default, if they exist:
         default.openFiles = [ "README.md" ];
       };
-      # Runs when the workspace is (re)started
+      
+      # 2. onStart: Database startup and delay (runs every time the workspace starts)
       onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
-          # 🟢 ADD THE MANUAL STARTUP HERE
         start-postgres-with-delay = ''
           export PGDATA="$HOME/pgdata"
           
@@ -63,7 +58,7 @@
           echo "Starting PostgreSQL server..."
           ${pkgs.postgresql}/bin/pg_ctl -D "$PGDATA" -l "$HOME/postgres.log" start
           
-          # CRITICAL: Wait for the database to start listening on 5432.
+          # CRITICAL: Pause for 5 seconds to ensure the connection is open
           echo "Waiting 5 seconds for PostgreSQL to be ready..."
           sleep 5 
           echo "PostgreSQL service started and ready for connections."
