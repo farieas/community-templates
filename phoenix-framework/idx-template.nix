@@ -1,4 +1,5 @@
 {pkgs}: {
+channel = "stable-25.05"; # or "unstable"
   packages = [
     pkgs.elixir
   ];
