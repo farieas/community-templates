@@ -9,12 +9,11 @@
     pkgs.elixir
     pkgs.elixir_ls
     pkgs.watchman
+    pkgs.postgresql
   ];
   # Sets environment variables in the workspace
   env = {};
-  services.postgres = {
-    enable = true;
-  };
+
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
