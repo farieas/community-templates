@@ -15,12 +15,13 @@
  */
 
 { pkgs, template ? "js", ts ? false, ... }: {
+  channel = "stable-25.05";
   packages = [
-    pkgs.nodejs_20
-    pkgs.python3
-    pkgs.python311Packages.pip
-    pkgs.python311Packages.fastapi
-    pkgs.python311Packages.uvicorn
+    pkgs.nodejs
+    pkgs.python313
+    pkgs.python313Packages.pip
+    pkgs.python313Packages.fastapi
+    pkgs.python313Packages.uvicorn
   ];
   bootstrap = ''    
     mkdir "$out"
@@ -28,7 +29,7 @@
     cp -rf ${./dev.nix} "$out/.idx/dev.nix"
     shopt -s dotglob; cp -r ${./dev}/* "$out"
     npm install nativescript
-    ./node_modules/nativescript/bin/ns create example --${template} ${if ts then "--ts" else ""} --path "$out"
+    ./node_modules/nativescript/bin/ns create example --${template} ${if ts then "--ts" else ""} "$out"
     chmod -R +w "$out"
     cd "$out"; npm install -D nativescript
     cd "$out"; npm install --package-lock-only --ignore-scripts
