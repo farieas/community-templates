@@ -1,8 +1,8 @@
 # idx-phoenix
 
 IDX template for [Phoenix Framework](https://www.phoenixframework.org/)
-
-<a href="https://idx.google.com/new?template=https://github.com/farieas/community-templates/tree/update-phoenix/phoenix-framework">
+https://idx.google.com/new?template=https://github.com/farieas/community-templates/tree/update-phoenix/phoenix-framework
+<a href="">
   <img
     height="32"
     alt="Open in IDX"
