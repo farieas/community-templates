@@ -6,7 +6,7 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.nodejs
-    pkgs.jdk
+    pkgs.jdk17
   ];
   # Sets environment variables in the workspace
   env = { };
