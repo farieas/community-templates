@@ -20,7 +20,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        install = ''npm ci --prefer-offline --no-audit --no-progress --timing && yes | npx ns preview'';
+        install = "npm ci --prefer-offline --no-audit --no-progress --timing && yes | npx ns preview";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "app/app.js" ];
       };
